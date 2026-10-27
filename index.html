@@ -509,6 +509,7 @@ font-family:var(--mincho);font-weight:600;font-size:16px;letter-spacing:.06em;co
 .ktalk-chips{display:flex;flex-wrap:wrap;gap:8px;padding:18px 20px 14px;border-bottom:1px solid var(--line);background:var(--kasumi);}
 .kt-chip{padding:8px 14px;font:inherit;font-size:13.5px;color:var(--sumi);background:#fff;border:1px solid #CFD1DF;cursor:pointer;transition:border-color .2s;}
 .kt-chip:hover{border-color:var(--ai);}
+.kt-more{color:var(--ai);border-style:dashed;}
 .kt-chip:disabled{opacity:.5;cursor:default;}
 .kt-chip:focus-visible{outline:2px solid var(--ai);outline-offset:2px;}
 .ktalk-log{padding:22px 20px 10px;display:grid;gap:12px;align-content:start;min-height:340px;max-height:560px;overflow-y:auto;}
@@ -2253,10 +2254,20 @@ if (['not_granted','sampling_disabled','not_declared','capability_disabled','cap
 reply(local(text)); setBusy(false);
 });
 }
-FAQ.filter(function(f){ return !f.more; }).forEach(function(f){
-var c = document.createElement('button'); c.type = 'button'; c.className = 'kt-chip'; c.textContent = f.q;
-c.addEventListener('click', function(){ ask(f.q); }); chipsEl.appendChild(c);
-});
+/* v4.6: show more questions at first (9), and the rest behind one button. Answers already exist with voices. */
+var FIRST = ['f06','f01','f07','f08','f02','f03','f16','f18','f05'];
+function chip(f){ var c = document.createElement('button'); c.type = 'button'; c.className = 'kt-chip'; c.textContent = f.q;
+c.addEventListener('click', function(){ ask(f.q); }); chipsEl.appendChild(c); }
+if (window.matchMedia && window.matchMedia('(max-width:600px)').matches) FIRST = FIRST.slice(0, 6);
+var firstQ = FIRST.map(function(id){ return FAQ.filter(function(f){ return f.id === id; })[0]; }).filter(Boolean);
+var restQ = FAQ.filter(function(f){ return firstQ.indexOf(f) < 0; });
+firstQ.forEach(chip);
+if (restQ.length){
+var mb = document.createElement('button'); mb.type = 'button'; mb.className = 'kt-chip kt-more'; mb.textContent = 'ほかの質問を見る（' + restQ.length + '）';
+mb.setAttribute('aria-expanded', 'false');
+mb.addEventListener('click', function(){ chipsEl.removeChild(mb); restQ.forEach(chip); });
+chipsEl.appendChild(mb);
+}
 form.addEventListener('submit', function(e){ e.preventDefault(); var v = msg.value; msg.value = ''; ask(v); });
 bub('k', body(BANK.x02.a));
 })();
@@ -2324,11 +2335,11 @@ new IntersectionObserver(function(es){ es.forEach(function(e){ inChat = e.isInte
 document.addEventListener('visibilitychange', run);
 btn.addEventListener('click', function(){
 used = true; hideSay();
-if (window.__ktab) window.__ktab('kchat'); var k = document.getElementById('kchat') || chat;
+if (window.__ktab) window.__ktab('ktalk'); var k = document.getElementById('ktalk') || chat; /* v4.6: opens 木葉と話す (left tab) */
 try { k.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block: 'start'}); } catch(e){ k.scrollIntoView(); }
 // then the first choice of the reception gets the focus (it appears a moment after the reception starts)
 var tries = 0, wait = setInterval(function(){
-var b = document.querySelector('#kchatInput button, #kchatInput input, #kchatInput textarea');
+var b = document.querySelector('#ktalkChips button');
 if (b){ clearInterval(wait); try { b.focus({preventScroll: true}); } catch(e){} }
 else if (++tries > 25){ clearInterval(wait); try { btn.blur(); } catch(e){} }
 }, 200);
