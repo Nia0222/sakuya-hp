@@ -1,0 +1,209 @@
+{
+	"Version": 3,
+	"Parameters": [
+		{
+			"Id": "ParamAngleX",
+			"GroupId": "",
+			"Name": "角度 X"
+		},
+		{
+			"Id": "ParamOrnHang",
+			"GroupId": "",
+			"Name": "下がり飾り 揺れ"
+		},
+		{
+			"Id": "ParamAngleY",
+			"GroupId": "",
+			"Name": "角度 Y"
+		},
+		{
+			"Id": "ParamWakabaEyeOpen",
+			"GroupId": "",
+			"Name": "わかば目の開閉"
+		},
+		{
+			"Id": "ParamAngleZ",
+			"GroupId": "",
+			"Name": "角度 Z"
+		},
+		{
+			"Id": "ParamEyeLOpen",
+			"GroupId": "",
+			"Name": "左目　開閉"
+		},
+		{
+			"Id": "ParamEyeROpen",
+			"GroupId": "",
+			"Name": "右目　開閉"
+		},
+		{
+			"Id": "ParamEyeBallX",
+			"GroupId": "",
+			"Name": "目玉 X"
+		},
+		{
+			"Id": "ParamEyeBallY",
+			"GroupId": "",
+			"Name": "目玉 Y"
+		},
+		{
+			"Id": "ParamBrowLY",
+			"GroupId": "",
+			"Name": "左眉　上下"
+		},
+		{
+			"Id": "ParamBrowRY",
+			"GroupId": "",
+			"Name": "右眉　上下"
+		},
+		{
+			"Id": "ParamBrowLAngle",
+			"GroupId": "",
+			"Name": "左眉　角度"
+		},
+		{
+			"Id": "ParamBrowRAngle",
+			"GroupId": "",
+			"Name": "右眉　角度"
+		},
+		{
+			"Id": "ParamMouthForm",
+			"GroupId": "",
+			"Name": "口　変形"
+		},
+		{
+			"Id": "ParamMouthOpenY",
+			"GroupId": "",
+			"Name": "口　開閉"
+		},
+		{
+			"Id": "ParamBodyAngleX",
+			"GroupId": "",
+			"Name": "体の回転 X"
+		},
+		{
+			"Id": "ParamBodyAngleZ",
+			"GroupId": "",
+			"Name": "体の回転 Z"
+		},
+		{
+			"Id": "ParamBreath",
+			"GroupId": "",
+			"Name": "呼吸"
+		},
+		{
+			"Id": "ParamHairFront",
+			"GroupId": "",
+			"Name": "髪揺れ　前"
+		},
+		{
+			"Id": "ParamHairSide",
+			"GroupId": "",
+			"Name": "髪揺れ　横"
+		},
+		{
+			"Id": "ParamHairBack",
+			"GroupId": "",
+			"Name": "髪揺れ　後"
+		},
+		{
+			"Id": "ParamExpSmile",
+			"GroupId": "",
+			"Name": "表情 笑顔"
+		},
+		{
+			"Id": "ParamExpSurprise",
+			"GroupId": "",
+			"Name": "表情 驚き"
+		},
+		{
+			"Id": "ParamExpSorry",
+			"GroupId": "",
+			"Name": "表情 困り"
+		},
+		{
+			"Id": "ParamExpMouthSmile",
+			"GroupId": "",
+			"Name": "表情口 笑顔"
+		},
+		{
+			"Id": "ParamExpMouthSurprise",
+			"GroupId": "",
+			"Name": "表情口 驚き"
+		},
+		{
+			"Id": "ParamExpMouthSorry",
+			"GroupId": "",
+			"Name": "表情口 困り"
+		},
+		{
+			"Id": "ParamWakabaSway",
+			"GroupId": "",
+			"Name": "わかば 揺れ"
+		},
+		{
+			"Id": "ParamAccessorySway",
+			"GroupId": "",
+			"Name": "飾り 揺れ"
+		}
+	],
+	"ParameterGroups": [],
+	"Parts": [
+		{
+			"Id": "Part",
+			"Name": "わかば"
+		},
+		{
+			"Id": "Part2",
+			"Name": "髪飾り"
+		},
+		{
+			"Id": "Part3",
+			"Name": "イヤリング"
+		},
+		{
+			"Id": "Part4",
+			"Name": "眉_表情"
+		},
+		{
+			"Id": "Part5",
+			"Name": "眉"
+		},
+		{
+			"Id": "Part6",
+			"Name": "前髪"
+		},
+		{
+			"Id": "Part10",
+			"Name": "目_表情"
+		},
+		{
+			"Id": "Part7",
+			"Name": "横髪_右"
+		},
+		{
+			"Id": "Part8",
+			"Name": "横髪_左"
+		},
+		{
+			"Id": "Part9",
+			"Name": "口_表情"
+		},
+		{
+			"Id": "Part11",
+			"Name": "目"
+		},
+		{
+			"Id": "Part12",
+			"Name": "顔"
+		},
+		{
+			"Id": "Part13",
+			"Name": "後ろ髪"
+		},
+		{
+			"Id": "Part14",
+			"Name": "体"
+		}
+	]
+}
